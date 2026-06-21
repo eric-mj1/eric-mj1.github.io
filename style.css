@@ -1,0 +1,336 @@
+/* almost everything is AI.. i wanted the exact style of the Codecademy website*/
+:root{
+  --paper:      #FAFAF8;
+  --paper-alt:  #F1F0EA;
+  --ink:        #15191D;
+  --ink-soft:   #535B61;
+  --rule:       #DBDED9;
+  --clearance:  #1E3A4C;  /* navy blue i like this one*/
+  --clearance-ink: #FFFFFF;
+  --flag:       #B07D2B;  
+  --good:       #3D6B4F;  
+  --mono-bg:    #F0EFEA;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body:    "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --wrap: 880px;
+  --radius: 3px;
+}
+
+/*RESET / BASE*/
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p{ margin: 0 0 1em; color: var(--ink-soft); }
+a{ color: var(--clearance); }
+
+.mono{ font-family: var(--font-mono); }
+
+.wrap{
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.skip-link{
+  position:absolute; left:-999px; top:auto;
+  background: var(--clearance); color:#fff;
+  padding: 10px 16px; z-index: 100;
+}
+.skip-link:focus{ left: 16px; top: 16px; }
+
+:focus-visible{
+  outline: 2px solid var(--clearance);
+  outline-offset: 3px;
+}
+
+/*HEADER / NAV*/
+.site-header{
+  position: sticky; top:0; z-index: 50;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height: 64px;
+}
+.logo-mark{
+  display:flex; align-items:center; gap:8px;
+  color: var(--ink); text-decoration:none;
+  font-family: var(--font-mono); font-weight:500; font-size: 0.95rem;
+}
+.logo-mark svg{ color: var(--clearance); }
+
+.primary-nav{ display:flex; gap: 28px; }
+.primary-nav a{
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration:none;
+  color: var(--ink-soft);
+  padding: 4px 2px;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.primary-nav a:hover, .primary-nav a:focus-visible{
+  color: var(--ink);
+  border-color: var(--clearance);
+}
+
+.nav-toggle{
+  display:none;
+  flex-direction:column; justify-content:center; gap:5px;
+  width: 36px; height: 36px;
+  background:none; border:1px solid var(--rule); border-radius: var(--radius);
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block; height:2px; width:18px; margin:0 auto;
+  background: var(--ink);
+}
+
+/*HERO - i know calling myself hero is weird but the tutorial i followed name it like this sooo*/
+.hero{
+  padding: 96px 0 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.eyebrow{
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--flag);
+  margin: 0 0 14px;
+}
+.hero h1{
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  margin-bottom: 0.15em;
+}
+.role{
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 0.9em;
+}
+.hero-intro{
+  max-width: 56ch;
+  font-size: 1.05rem;
+}
+.hero-actions{
+  display:flex; gap:14px; flex-wrap:wrap;
+  margin: 28px 0 28px;
+}
+.status-line{
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/*BUTTONS*/
+.btn{
+  display:inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration:none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{
+  background: var(--clearance);
+  color: var(--clearance-ink);
+}
+.btn-primary:hover{ background: #16303f; }
+.btn-ghost{
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn-ghost:hover{ background: var(--ink); color: var(--paper); }
+
+.tag{
+  display:inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+}
+.tag-open{ color: var(--good); }
+.tag-impact{ color: var(--flag); }
+.tag-medium{ color: var(--clearance); }
+.tag-low{ color: var(--ink-soft); }
+
+/*SECTIONS (shared)*/
+.section{ padding: 72px 0; border-bottom: 1px solid var(--rule); }
+.section-alt{ background: var(--paper-alt); }
+.section h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.section-intro{ max-width: 60ch; }
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items:start;
+  margin-top: 18px;
+}
+.about-text{ font-size: 1.02rem; max-width: 56ch; }
+.quickfacts{ font-size: 0.85rem; }
+.quickfacts div{
+  display:flex; justify-content:space-between; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.quickfacts dt{ color: var(--ink-soft); }
+.quickfacts dd{ margin:0; text-align:right; }
+
+/* CASE LOG / PROJECTS */
+.case-list{
+  list-style:none; margin: 32px 0 0; padding:0;
+  display:grid; gap: 18px;
+}
+.case{
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  position:relative;
+  overflow:hidden;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.case::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:3px;
+  background: var(--clearance);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .2s ease;
+}
+.case:hover::before, .case:focus-within::before{ transform: scaleY(1); }
+.case:hover{ border-color: var(--clearance); }
+
+.case-head{
+  display:flex; align-items:center; gap:12px;
+  margin-bottom: 10px;
+}
+.case-id{ color: var(--ink-soft); font-size: 0.8rem; }
+.case h3{ font-size: 1.2rem; margin-bottom: 0.4em; }
+.case-stack{
+  list-style:none; display:flex; flex-wrap:wrap; gap:8px 14px;
+  margin: 10px 0 14px; padding:0;
+  font-size: 0.75rem; color: var(--ink-soft);
+}
+.case-stack li::before{ content:"·"; margin-right: 6px; color: var(--rule); }
+.case-stack li:first-child::before{ content:""; margin:0; }
+.case-links{ display:flex; gap: 18px; }
+.case-links a{
+  font-family: var(--font-mono); font-size: 0.82rem;
+  text-decoration:none; color: var(--clearance);
+  border-bottom: 1px solid transparent;
+}
+.case-links a:hover{ border-color: var(--clearance); }
+
+/* SKILLS / MATRIX */
+.matrix{
+  margin-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.matrix-row{
+  display:grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.matrix-row h3{ font-size: 1rem; margin:0; }
+.matrix-row p{ margin:0; }
+
+/* RESUME */
+.resume-panel{
+  margin-top: 18px;
+  padding: 32px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  max-width: 560px;
+}
+.resume-panel p:first-child{ max-width: 48ch; }
+.resume-note{
+  margin-top: 14px; margin-bottom:0;
+  font-size: 0.75rem; color: var(--ink-soft);
+}
+
+/* CONTACT */
+.contact-grid{
+  margin-top: 24px;
+  display:grid; gap: 12px;
+  max-width: 420px;
+}
+.contact-link{
+  display:flex; align-items:center; gap:10px;
+  padding: 14px 16px;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  text-decoration:none;
+  color: var(--ink);
+  font-size: 0.85rem;
+  cursor:pointer;
+  width:100%;
+  text-align:left;
+  transition: border-color .15s ease, background .15s ease;
+}
+.contact-link svg{ color: var(--clearance); flex-shrink:0; }
+.contact-link:hover{ border-color: var(--clearance); background: var(--paper); }
+
+/* FOOTER */
+.site-footer{ padding: 28px 0; }
+.footer-inner{
+  display:flex; justify-content:space-between;
+  font-size: 0.78rem; color: var(--ink-soft);
+}
+.eof{ color: var(--rule); }
+
+/*RESPONSIVE*/
+@media (max-width: 760px){
+  .nav-toggle{ display:flex; }
+  .primary-nav{
+    position:absolute; top:64px; left:0; right:0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    flex-direction:column; gap:0;
+    max-height:0; overflow:hidden;
+    transition: max-height .2s ease;
+  }
+  .primary-nav.open{ max-height: 320px; }
+  .primary-nav a{
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-grid{ grid-template-columns: 1fr; }
+  .matrix-row{ grid-template-columns: 1fr; gap: 4px; }
+}
