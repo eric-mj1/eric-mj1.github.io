@@ -1,16 +1,14 @@
-/* ============================================================
-   TOKENS
-   ============================================================ */
+/* almost everything is AI.. i wanted the exact style of the Codecademy website*/
 :root{
   --paper:      #FAFAF8;
   --paper-alt:  #F1F0EA;
   --ink:        #15191D;
   --ink-soft:   #535B61;
   --rule:       #DBDED9;
-  --clearance:  #1E3A4C;  /* primary accent — deep slate navy */
+  --clearance:  #1E3A4C;  /* navy blue i like this one*/
   --clearance-ink: #FFFFFF;
-  --flag:       #B07D2B;  /* secondary accent — muted amber */
-  --good:       #3D6B4F;  /* small success/open tag */
+  --flag:       #B07D2B;  
+  --good:       #3D6B4F;  
   --mono-bg:    #F0EFEA;
 
   --font-display: "Space Grotesk", system-ui, sans-serif;
@@ -21,9 +19,7 @@
   --radius: 3px;
 }
 
-/* ============================================================
-   RESET / BASE
-   ============================================================ */
+/*RESET / BASE*/
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce){
@@ -72,9 +68,7 @@ a{ color: var(--clearance); }
   outline-offset: 3px;
 }
 
-/* ============================================================
-   HEADER / NAV
-   ============================================================ */
+/*HEADER / NAV*/
 .site-header{
   position: sticky; top:0; z-index: 50;
   background: rgba(250,250,248,0.92);
@@ -119,9 +113,7 @@ a{ color: var(--clearance); }
   background: var(--ink);
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+/*HERO - i know calling myself hero is weird but the tutorial i followed name it like this sooo*/
 .hero{
   padding: 96px 0 64px;
   border-bottom: 1px solid var(--rule);
@@ -155,9 +147,7 @@ a{ color: var(--clearance); }
   color: var(--ink-soft);
 }
 
-/* ============================================================
-   BUTTONS / TAGS
-   ============================================================ */
+/*BUTTONS*/
 .btn{
   display:inline-block;
   font-family: var(--font-mono);
@@ -194,9 +184,7 @@ a{ color: var(--clearance); }
 .tag-medium{ color: var(--clearance); }
 .tag-low{ color: var(--ink-soft); }
 
-/* ============================================================
-   SECTIONS (shared)
-   ============================================================ */
+/*SECTIONS (shared)*/
 .section{ padding: 72px 0; border-bottom: 1px solid var(--rule); }
 .section-alt{ background: var(--paper-alt); }
 .section h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); }
@@ -327,9 +315,7 @@ a{ color: var(--clearance); }
 }
 .eof{ color: var(--rule); }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/*RESPONSIVE*/
 @media (max-width: 760px){
   .nav-toggle{ display:flex; }
   .primary-nav{
